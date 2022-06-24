@@ -1,0 +1,35 @@
+image: cr.yandex/crp742p3qacifd2hcon2/practice-da:latest
+
+stages:
+    - init
+    - run
+
+report_job:
+    stage: run
+    only:
+        refs:
+            - schedules
+        variables:
+            - $SCHEDULE_TYPE == "build_report"
+    script:
+        - python report.py
+
+report_feed_mes_job:
+    stage: run
+    only:
+        refs:
+            - schedules
+        variables:
+            - $SCHEDULE_TYPE == "build_report_feed_mes"
+    script:
+        - python report_feed_mes.py
+
+alert_job:
+    stage: run
+    only:
+        refs:
+            - schedules
+        variables:
+            - $SCHEDULE_TYPE == "build_alert"
+    script:
+        - python alert.py
