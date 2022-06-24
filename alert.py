@@ -31,7 +31,7 @@ def check_anomaly(df, metric, a = 3, n = 5): # a - коэффициент для
 
 
 def run_alerts(chat=None):
-    chat_id = chat or -652068442 # -652068442 746901250 
+    chat_id = chat 
     bot = telegram.Bot(token = os.environ.get("REPORT_BOT_TOKEN")) # os.environ.get("REPORT_BOT_TOKEN")
 
     data = Getch(''' SELECT
