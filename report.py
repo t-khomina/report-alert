@@ -22,7 +22,7 @@ def send_plot(bot, chat_id, data, x, y):
     bot.sendPhoto(chat_id=chat_id, photo=plot_object)
 
 def report(chat=None):
-    chat_id = chat or -715060805 #-715060805 746901250
+    chat_id = chat
     bot = telegram.Bot(token=os.environ.get("REPORT_BOT_TOKEN")) #os.environ.get("REPORT_BOT_TOKEN")
     
     data = Getch('''SELECT
